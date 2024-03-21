@@ -1,0 +1,22 @@
+.DS_Store
+.idea
+.editorconfig
+pnpm-lock.yaml
+.npmrc
+
+.tmp
+.cache/
+coverage/
+**/.yarn/**
+**/.pnp.*
+/dist*/
+node_modules/
+**/node_modules/
+
+## Local
+.husky
+.local
+
+components.d.ts
+auto-imports.d.ts
+**/.vscode/**
