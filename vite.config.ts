@@ -37,6 +37,10 @@ export default defineConfig({
         dayjs: [['*', 'dayjs']],
         radash: [['*', '_']],
       }],
+      resolvers: [
+        // ElementPlusResolver(),
+        // TDesignResolver({ library: 'vue-next' }),
+      ],
     }),
     Components({
       dts: true,
