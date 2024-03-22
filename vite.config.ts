@@ -5,11 +5,12 @@ import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dayjs from 'dayjs'
+import AutoImport from 'unplugin-auto-import/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { defineConfig } from 'vite'
 import VitePluginMetaEnv from 'vite-plugin-meta-env'
 import VueDevTools from 'vite-plugin-vue-devtools'
-import AutoImport from 'unplugin-auto-import/vite'
+
 import { version } from './package.json'
 
 // https://vitejs.dev/config/
@@ -32,6 +33,7 @@ export default defineConfig({
       imports: ['vue', 'vue-router', 'pinia', 'vitest', '@vueuse/core', {
         numbro: [['default', 'numbro']],
         dayjs: [['*', 'dayjs']],
+        radash: [['*', '_']],
       }],
     }),
   ],
@@ -39,5 +41,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  esbuild: {
+    // 打包时移除 console 和 debugger
+    drop: ['console', 'debugger'],
   },
 })

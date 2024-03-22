@@ -1,5 +1,10 @@
 {
-  "cSpell.words": ["dprint", "tsdoc"],
+  "cSpell.words": [
+    "dprint",
+    "pnpx",
+    "tsdoc",
+    "unref"
+  ],
   // Enable the ESlint flat config support
   "eslint.experimental.useFlatConfig": true,
 
