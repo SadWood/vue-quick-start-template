@@ -3,7 +3,8 @@
     "dprint",
     "pnpx",
     "tsdoc",
-    "unref"
+    "unref",
+    "vuejs"
   ],
   // Enable the ESlint flat config support
   "eslint.experimental.useFlatConfig": true,
@@ -46,5 +47,6 @@
     "yaml",
     "toml"
   ],
-  "vue.server.hybridMode": true
+  "vue.server.hybridMode": true,
+  "css.lint.unknownAtRules": "ignore"
 }

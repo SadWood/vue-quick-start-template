@@ -7,8 +7,10 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import dayjs from 'dayjs'
 import AutoImport from 'unplugin-auto-import/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
+import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import VitePluginMetaEnv from 'vite-plugin-meta-env'
+// import { ElementPlusResolver, TDesignResolver } from 'unplugin-vue-components/resolvers'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
@@ -35,6 +37,13 @@ export default defineConfig({
         dayjs: [['*', 'dayjs']],
         radash: [['*', '_']],
       }],
+    }),
+    Components({
+      dts: true,
+      resolvers: [
+        // ElementPlusResolver(),
+        // TDesignResolver({ library: 'vue-next' }),
+      ],
     }),
   ],
   resolve: {

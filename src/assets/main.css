@@ -1,36 +1,22 @@
 @import './base.css';
 @import './tailwind.css';
 
+body {
+  @apply lg:flex lg:place-items-center;
+}
+
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  @apply mx-auto p-8 max-w-7xl font-normal lg:grid lg:grid-cols-2 lg:px-8 lg:py-0;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+a {
+  @apply hover:bg-[#00BD7E33] no-underline text-[#00BD7E] p-[3px] transition duration-400;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
+nav a {
+  @apply inline-block py-0 px-4 border-l-1 border-vue-border first-of-type:border-0;
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  &.router-link-exact-active {
+    @apply text-vue-text hover:bg-transparent;
   }
 }
