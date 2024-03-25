@@ -1,5 +1,34 @@
 @import './base.css';
-@import './tailwind.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
 
 body {
   @apply lg:flex lg:place-items-center;
@@ -14,7 +43,7 @@ a {
 }
 
 nav a {
-  @apply inline-block py-0 px-4 border-l-1 border-vue-border first-of-type:border-0;
+  @apply inline-block py-0 px-4 border-0 border-l border-solid border-vue-border first-of-type:border-0;
 
   &.router-link-exact-active {
     @apply text-vue-text hover:bg-transparent;

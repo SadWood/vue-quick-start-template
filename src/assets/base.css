@@ -31,8 +31,8 @@
 
 body {
   min-height: 100vh;
-  color: var(--color-vue-text);
-  background: var(--color-vue-background);
+  color: var(--color-text);
+  background: var(--color-background);
   transition:
     color 0.5s,
     background-color 0.5s;

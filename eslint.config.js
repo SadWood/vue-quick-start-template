@@ -1,4 +1,7 @@
 import antfu from '@antfu/eslint-config'
+import { FlatCompat } from '@eslint/eslintrc'
+
+const compat = new FlatCompat()
 
 export default antfu(
   {
@@ -22,4 +25,14 @@ export default antfu(
       'no-debugger': 'off', // 同上
     },
   },
+  ...compat.config({
+    extends: [
+      'plugin:tailwindcss/recommended',
+      // Other extends...
+    ],
+    rules: {
+      // 允许tailwindcss以外的自定义类名
+      'tailwindcss/no-custom-classname': 'off',
+    },
+  }),
 )

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+console.log(dayjs())
 </script>
 
 <template>
@@ -12,12 +13,10 @@
       width="125"
       height="125"
     >
-
-    <div class="lg:flex lg:flex-start lg:flex-wrap">
+    <div class="lg:flex lg:flex-wrap lg:place-items-start">
       <HelloWorld msg="You did it!" />
-
       <nav
-        class="mt-8 w-full text-center text-xs lg:mt-4 lg:-ml-4 lg:py-4 lg:px-0 lg:text-left lg:text-base [&_a]:inline-block [&_a]:border-l-1 [&_a]:border-vue-border [&_a]:py-0 [&_a]:px-4 [&_a.router-link-exact-active]:text-vue-text [&_a.router-link-exact-active:hover]:bg-transparent [&_a:first-of-type]:border-0"
+        class="mt-8 w-full text-center text-xs lg:-ml-4 lg:mt-4 lg:px-0 lg:py-4 lg:text-left lg:text-base [&_a.router-link-exact-active:hover]:bg-transparent [&_a.router-link-exact-active]:text-vue-text [&_a:first-of-type]:border-0 [&_a]:inline-block [&_a]:border-0 [&_a]:border-l [&_a]:border-solid [&_a]:border-vue-border [&_a]:px-4 [&_a]:py-0"
       >
         <RouterLink to="/">
           Home
