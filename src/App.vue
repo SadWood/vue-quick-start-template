@@ -1,5 +1,5 @@
 <script setup lang="ts">
-console.log(dayjs())
+console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
 </script>
 
 <template>
@@ -23,6 +23,9 @@ console.log(dayjs())
         </RouterLink>
         <RouterLink to="/about">
           About
+        </RouterLink>
+        <RouterLink to="/echarts">
+          Echarts
         </RouterLink>
       </nav>
     </div>

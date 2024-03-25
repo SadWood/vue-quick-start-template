@@ -41,7 +41,7 @@ export default defineConfig({
           'radash': [['*', '_']],
           '@/utils/dayjs': [['default', 'dayjs']],
           /**
-           * 添加 ECharts 部分组件，未在echarts.ts中使用的组件不会被打包
+           * 添加 ECharts 部分组件，当前添加但项目中未使用的组件不会被打包
            * 如果需要其他组件，可以自行添加
            */
           'echarts/core': ['use', 'graphic', 'registerTheme', 'registerMap'],
@@ -69,6 +69,7 @@ export default defineConfig({
             'MarkLineComponent',
             'DataZoomComponent',
             'GraphicComponent',
+            'DatasetComponent',
           ],
           'echarts/features': ['LabelLayout', 'UniversalTransition'],
           '@formkit/auto-animate/vue': ['useAutoAnimate'],
@@ -120,14 +121,23 @@ export default defineConfig({
       output: {
         /**
          * 将一些第三方库单独打包，以便更好的利用浏览器缓存，实现更快的加载速度
-         * 如果未使用到的库，可以注释掉，以免生成空文件
          */
-        manualChunks: {
-          'radash': ['radash'],
-          'numbro': ['numbro'],
-          'dayjs': ['dayjs'],
-          'echarts': ['echarts'],
-          'vue-echarts': ['vue-echarts'],
+        manualChunks: (id) => {
+          const moduleMap = {
+            'radash': 'radash',
+            'numbro': 'numbro',
+            'dayjs': 'dayjs',
+            // vue-echarts 必须在 echarts 之前，否则只会打包成 echarts
+            'vue-echarts': 'vue-echarts',
+            'echarts': 'echarts',
+          }
+
+          if (id.includes('node_modules')) {
+            for (const [key, value] of Object.entries(moduleMap)) {
+              if (id.includes(key))
+                return value
+            }
+          }
         },
       },
     },

@@ -1,2 +1,5 @@
-// ECharts 示例
-// use([SVGRenderer, GridComponent, LineChart])
+import oliviaGreen from './oliviaGreen.json'
+
+registerTheme('olivia-green', oliviaGreen)
+
+use([SVGRenderer])
