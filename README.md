@@ -54,3 +54,7 @@ The editor process exited with an error: spawn code ENOENT.
 [Launching from the command line](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
 
 [Echarts import code generator](https://vue-echarts.dev/?renderer=svg#codegen)
+
+### TDesign
+
+`MessagePlugin`, `NotifyPlugin`, `LoadingPlugin`, `DialogPlugin`

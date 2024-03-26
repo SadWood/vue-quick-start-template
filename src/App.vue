@@ -27,6 +27,12 @@ console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
         <RouterLink to="/echarts">
           Echarts
         </RouterLink>
+        <RouterLink to="/tailwind">
+          Tailwind
+        </RouterLink>
+        <RouterLink to="/tdesign">
+          Tdesign
+        </RouterLink>
       </nav>
     </div>
   </header>

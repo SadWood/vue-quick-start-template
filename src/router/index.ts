@@ -20,6 +20,16 @@ const router = createRouter({
       name: 'echarts',
       component: () => import('../views/EchartsView.vue'),
     },
+    {
+      path: '/tailwind',
+      name: 'tailwind',
+      component: () => import('../views/TailwindView.vue'),
+    },
+    {
+      path: '/tdesign',
+      name: 'tdesign',
+      component: () => import('../views/TDesignView.vue'),
+    },
   ],
 })
 

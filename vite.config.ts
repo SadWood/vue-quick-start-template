@@ -6,10 +6,10 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import dayjs from 'dayjs'
 import AutoImport from 'unplugin-auto-import/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
+import { TDesignResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import VitePluginMetaEnv from 'vite-plugin-meta-env'
-// import { ElementPlusResolver, TDesignResolver } from 'unplugin-vue-components/resolvers'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
@@ -77,8 +77,7 @@ export default defineConfig({
       ],
       vueTemplate: true,
       resolvers: [
-        // ElementPlusResolver(),
-        // TDesignResolver({ library: 'vue-next' }),
+        TDesignResolver({ library: 'vue-next', esm: true }),
         {
           type: 'directive',
           resolve(name) {
@@ -95,8 +94,7 @@ export default defineConfig({
     Components({
       dts: true,
       resolvers: [
-        // ElementPlusResolver(),
-        // TDesignResolver({ library: 'vue-next' }),
+        TDesignResolver({ library: 'vue-next', esm: true }),
         (componentName) => {
           if (componentName === 'VChart') {
             return {
@@ -130,6 +128,7 @@ export default defineConfig({
             // vue-echarts 必须在 echarts 之前，否则只会打包成 echarts
             'vue-echarts': 'vue-echarts',
             'echarts': 'echarts',
+            'tdesign-vue-next': 'tdesign-vue-next',
           }
 
           if (id.includes('node_modules')) {

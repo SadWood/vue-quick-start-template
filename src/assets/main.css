@@ -35,7 +35,7 @@ body {
 }
 
 #app {
-  @apply mx-auto p-8 max-w-7xl font-normal lg:grid lg:grid-cols-2 lg:px-8 lg:py-0;
+  @apply mx-auto p-8 max-w-8xl font-normal lg:grid lg:grid-cols-2 lg:px-8 lg:py-0;
 }
 
 a {

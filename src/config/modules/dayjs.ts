@@ -1,8 +1,7 @@
 import 'dayjs/locale/zh-cn'
-// import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+import isLeapYear from 'dayjs/plugin/isLeapYear'
 
-// 插件示例
-// dayjs.extend(isSameOrBefore)
+dayjs.extend(isLeapYear)
 // 设置中文
 dayjs.locale('zh-cn')
 

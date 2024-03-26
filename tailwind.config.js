@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        '8xl': '88rem',
+      },
       colors: {
         'vue-background': 'var(-color-background)',
         'vue-background-soft': 'var(--color-background-soft)',
@@ -20,8 +23,7 @@ export default {
       },
     },
   },
-  plugins: [],
-  corePlugins: {
-    preflight: false,
-  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
