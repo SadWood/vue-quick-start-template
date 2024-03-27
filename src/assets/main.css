@@ -35,15 +35,11 @@ body {
 }
 
 #app {
-  @apply mx-auto p-8 max-w-8xl font-normal lg:grid lg:grid-cols-2 lg:px-8 lg:py-0;
+  @apply mx-auto p-8 max-w-10xl font-normal lg:grid lg:grid-cols-2 lg:px-8 lg:py-0;
 }
 
-a {
-  @apply hover:bg-[#00BD7E33] no-underline text-[#00BD7E] p-[3px] transition duration-400;
-}
-
-nav a {
-  @apply inline-block py-0 px-4 border-0 border-l border-solid border-vue-border first-of-type:border-0;
+a.router-link {
+  @apply inline-block p-[3px] px-4 py-0 text-[#00BD7E] no-underline transition duration-400 hover:bg-[#00BD7E33];
 
   &.router-link-exact-active {
     @apply text-vue-text hover:bg-transparent;

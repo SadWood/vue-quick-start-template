@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { title } from 'radash'
+
+const router = useRouter()
+
+const routes = router.getRoutes().map(route => ({
+  name: title(route.name as string),
+  path: route.path,
+}))
+
 console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
 </script>
 
@@ -8,30 +17,16 @@ console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
   >
     <img
       alt="Vue logo"
-      class="lg:mr-8"
+      class="size-32 lg:mr-8"
       src="@/assets/logo.svg"
-      width="125"
-      height="125"
     >
     <div class="lg:flex lg:flex-wrap lg:place-items-start">
       <HelloWorld msg="You did it!" />
       <nav
-        class="mt-8 w-full text-center text-xs lg:-ml-4 lg:mt-4 lg:px-0 lg:py-4 lg:text-left lg:text-base [&_a.router-link-exact-active:hover]:bg-transparent [&_a.router-link-exact-active]:text-vue-text [&_a:first-of-type]:border-0 [&_a]:inline-block [&_a]:border-0 [&_a]:border-l [&_a]:border-solid [&_a]:border-vue-border [&_a]:px-4 [&_a]:py-0"
+        class="mt-8 w-full divide-x divide-vue-border text-center text-xs lg:-ml-4 lg:mt-4 lg:px-0 lg:py-4 lg:text-left lg:text-base"
       >
-        <RouterLink to="/">
-          Home
-        </RouterLink>
-        <RouterLink to="/about">
-          About
-        </RouterLink>
-        <RouterLink to="/echarts">
-          Echarts
-        </RouterLink>
-        <RouterLink to="/tailwind">
-          Tailwind
-        </RouterLink>
-        <RouterLink to="/tdesign">
-          Tdesign
+        <RouterLink v-for="route in routes" :key="route.name" :to="route.path" class="router-link">
+          {{ route.name }}
         </RouterLink>
       </nav>
     </div>

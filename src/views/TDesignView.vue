@@ -9,7 +9,7 @@ const percentage = numbro(dayjs().diff(dayjs().startOf('year'), 'day')).divide(d
     <t-aside>
       <t-menu theme="light" value="dashboard" style="margin-right: 50px" height="550px">
         <template #logo>
-          <img width="136" class="logo" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
+          <img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
         </template>
         <t-menu-item value="dashboard">
           <template #icon>

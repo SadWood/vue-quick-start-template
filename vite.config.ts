@@ -16,7 +16,7 @@ import { version } from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '',
   plugins: [
     vue(),
     vueJsx({ transformOn: true }),
@@ -109,6 +109,24 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  optimizeDeps: {
+    // 避免因为发现新的依赖项而触发新的公共 chunk 生成，从而需要刷新整个页面。
+    holdUntilCrawlEnd: false,
+    // 强制预构建链接的包
+    include: [
+      'dayjs',
+      'numbro',
+      'radash',
+      '@vueuse/core',
+      'tdesign-vue-next/esm',
+      'vue-echarts',
+      'echarts/core',
+      'echarts/renderers',
+      'echarts/charts',
+      'echarts/components',
+      'echarts/features',
+    ],
   },
   esbuild: {
     // 打包时移除 console 和 debugger

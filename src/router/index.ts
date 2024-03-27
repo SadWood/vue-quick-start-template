@@ -30,6 +30,11 @@ const router = createRouter({
       name: 'tdesign',
       component: () => import('../views/TDesignView.vue'),
     },
+    {
+      path: '/vueuse',
+      name: 'vueuse',
+      component: () => import('../views/VueUseView.vue'),
+    },
   ],
 })
 
