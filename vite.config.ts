@@ -139,21 +139,12 @@ export default defineConfig({
          * 将一些第三方库单独打包，以便更好的利用浏览器缓存，实现更快的加载速度
          */
         manualChunks: (id) => {
-          const moduleMap = {
-            'radash': 'radash',
-            'numbro': 'numbro',
-            'dayjs': 'dayjs',
-            // vue-echarts 必须在 echarts 之前，否则只会打包成 echarts
-            'vue-echarts': 'vue-echarts',
-            'echarts': 'echarts',
-            'tdesign-vue-next': 'tdesign-vue-next',
-          }
+          const moduleList = ['radash', 'numbro', 'dayjs', 'vue-echarts', 'echarts', 'tdesign-vue-next']
 
           if (id.includes('node_modules')) {
-            for (const [key, value] of Object.entries(moduleMap)) {
-              if (id.includes(key))
-                return value
-            }
+            const module = moduleList.find(name => id.includes(name))
+            if (module)
+              return module
           }
         },
       },
