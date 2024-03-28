@@ -31,6 +31,5 @@ console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
       </nav>
     </div>
   </header>
-
   <RouterView />
 </template>
