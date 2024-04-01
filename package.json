@@ -17,7 +17,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:viewer": "pnpx eslint-flat-config-viewer",
-    "format": "prettier --write src/",
     "prepare": "husky",
     "commit": "cz",
     "release": "release-it"
