@@ -15,11 +15,7 @@ console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
   <header
     class="max-h-screen leading-normal lg:flex lg:items-center lg:pr-20"
   >
-    <img
-      alt="Vue logo"
-      class="size-32 lg:mr-8"
-      src="@/assets/logo.svg"
-    >
+    <div class="icon-vue-logo aspect-square size-32 lg:mr-8" />
     <div class="lg:flex lg:flex-wrap lg:place-items-start">
       <HelloWorld msg="You did it!" />
       <nav
