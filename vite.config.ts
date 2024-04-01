@@ -14,6 +14,13 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
 
+const ComponentsResolver = [TDesignResolver({
+  library: 'vue-next',
+  esm: true,
+  // 排除Plugin，使用 $ 开头的变量
+  exclude: /.*Plugin$/,
+})]
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '',
@@ -73,11 +80,18 @@ export default defineConfig({
           ],
           'echarts/features': ['LabelLayout', 'UniversalTransition'],
           '@formkit/auto-animate/vue': ['useAutoAnimate'],
+          // 重命名为以 $ 开头的全局变量
+          'tdesign-vue-next': [
+            ['MessagePlugin', '$message'],
+            ['NotifyPlugin', '$notify'],
+            ['LoadingPlugin', '$loading'],
+            ['DialogPlugin', '$dialog'],
+          ],
         },
       ],
       vueTemplate: true,
       resolvers: [
-        TDesignResolver({ library: 'vue-next', esm: true }),
+        ...ComponentsResolver,
         {
           type: 'directive',
           resolve(name) {
@@ -94,7 +108,7 @@ export default defineConfig({
     Components({
       dts: true,
       resolvers: [
-        TDesignResolver({ library: 'vue-next', esm: true }),
+        ...ComponentsResolver,
         (componentName) => {
           if (componentName === 'VChart') {
             return {
@@ -135,17 +149,23 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        /**
-         * 将一些第三方库单独打包，以便更好的利用浏览器缓存，实现更快的加载速度
-         */
-        manualChunks: (id) => {
+        // 将 node_modules 中的模块分包
+        manualChunks: (id, { getModuleInfo }) => {
           const moduleList = ['radash', 'numbro', 'dayjs', 'vue-echarts', 'echarts', 'tdesign-vue-next']
 
           if (id.includes('node_modules')) {
-            const module = moduleList.find(name => id.includes(name))
-            if (module)
-              return module
+            const moduleInfo = getModuleInfo(id)
+            const isCommon = moduleInfo && moduleInfo?.importers.length > 1
+
+            return moduleList.find(name => id.includes(name)) || (isCommon ? 'common' : undefined)
           }
+        },
+        entryFileNames: 'js/[name].[hash].js',
+        chunkFileNames: 'js/[name].[hash].js',
+        assetFileNames: ({ name }) => {
+          if (name?.endsWith('.css'))
+            return 'css/[name].[hash].css'
+          return 'assets/[name].[hash][extname]'
         },
       },
     },
