@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { title } from 'radash'
-
 const router = useRouter()
 
 const routes = router.getRoutes().map(route => ({
-  name: title(route.name as string),
+  name: _.title(route.name as string),
   path: route.path,
 }))
 

@@ -1,7 +1,7 @@
 <script lang="tsx" setup>
 import type { TableProps } from 'tdesign-vue-next'
 
-MessagePlugin.success(`${dayjs().format('a')}好，TDesign!`)
+$message.success(`${dayjs().format('a')}好，TDesign!`)
 
 const percentage = numbro(dayjs().diff(dayjs().startOf('year'), 'day')).divide(dayjs().isLeapYear() ? 366 : 365).multiply(100).format('0.00')
 
