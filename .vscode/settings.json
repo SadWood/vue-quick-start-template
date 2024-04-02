@@ -12,7 +12,7 @@
   "eslint.experimental.useFlatConfig": true,
 
   // Disable the default formatter, use eslint instead
-  "prettier.enable": false,
+  "prettier.enable": true,
   "editor.formatOnSave": false,
 
   // Auto fix
@@ -50,5 +50,12 @@
     "toml"
   ],
   "vue.server.hybridMode": true,
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "prettier.configPath": ".prettierrc.js",
+  "prettier.requireConfig": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.useTabs": false,
+  "prettier.tabWidth": 2,
+  "prettier.endOfLine": "lf"
 }

@@ -11,6 +11,13 @@ export default antfu(
       css: 'prettier',
       html: 'prettier',
       markdown: 'prettier',
+      prettierOptions: {
+        useTabs: false,
+        tabWidth: 2,
+        endOfLine: 'lf',
+        singleQuote: true,
+        semi: false,
+      },
     },
     rules: {
       'import/order': ['error', {
