@@ -4,7 +4,7 @@
 <template>
   <WelcomeItem>
     <template #icon>
-      <IconDocumentation />
+      <span class="icon-vue-documentation size-5" />
     </template>
     <template #heading>
       Documentation
@@ -17,7 +17,7 @@
 
   <WelcomeItem>
     <template #icon>
-      <IconTooling />
+      <span class="icon-vue-tooling size-5" />
     </template>
     <template #heading>
       Tooling
@@ -39,7 +39,7 @@
 
   <WelcomeItem>
     <template #icon>
-      <IconEcosystem />
+      <span class="icon-vue-ecosystem size-5" />
     </template>
     <template #heading>
       Ecosystem
@@ -57,7 +57,7 @@
 
   <WelcomeItem>
     <template #icon>
-      <IconCommunity />
+      <span class="icon-vue-community size-5" />
     </template>
     <template #heading>
       Community
@@ -75,7 +75,7 @@
 
   <WelcomeItem>
     <template #icon>
-      <IconSupport />
+      <span class="icon-vue-support size-5" />
     </template>
     <template #heading>
       Support Vue
