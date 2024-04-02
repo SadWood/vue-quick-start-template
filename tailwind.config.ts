@@ -3,7 +3,7 @@ import { cleanupSVG, importDirectorySync, isEmptyColor, parseColors, runSVGO } f
 import { compareColors, stringToColor } from '@iconify/utils/lib/colors'
 import formsPlugin from '@tailwindcss/forms'
 
-function getCollections(dir) {
+function getCollections(dir: string) {
   // Import icons
   const iconSet = importDirectorySync(dir, {
     includeSubDirs: false,
@@ -28,8 +28,8 @@ function getCollections(dir) {
 
       // Change color to `currentColor`
       // Skip this step if icon has hardcoded palette
-      const blackColor = stringToColor('black')
-      const whiteColor = stringToColor('white')
+      const blackColor = stringToColor('black')!
+      const whiteColor = stringToColor('white')!
       parseColors(svg, {
         defaultColor: 'currentColor',
         callback: (attr, colorStr, color) => {
@@ -109,8 +109,18 @@ export default {
       collections: {
         vue: getCollections('./src/icons/vue'),
       },
+      extraProperties: {
+        display: 'inline-block',
+        verticalAlign: 'middle',
+      },
     }),
     // example: icon-[heroicons--check-solid]
-    dynamicIconsPlugin({ prefix: 'icon' }),
+    dynamicIconsPlugin({
+      prefix: 'icon',
+      extraProperties: {
+        display: 'inline-block',
+        verticalAlign: 'middle',
+      },
+    }),
   ],
 }

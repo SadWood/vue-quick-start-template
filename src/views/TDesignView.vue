@@ -169,7 +169,7 @@ const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
         </t-menu-item>
       </t-menu>
     </t-aside>
-    <t-layout>
+    <t-layout class="min-w-0">
       <t-content class="p-4">
         <div class="text-right">
           <t-badge count="100" class="ml-auto">
@@ -186,8 +186,8 @@ const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
         <t-divider />
         <t-table row-key="id" :data="data" :columns="columns" :row-class-name="getRowClassName">
           <template #footerSummary>
-            <div class="t-table__row-filter-inner">
-              <InfoCircleIcon />近期申请耗时较长
+            <div class="flex items-center justify-center gap-x-2">
+              <span class="icon-[tdesign--info-circle]" />近期申请耗时较长
             </div>
           </template>
         </t-table>
@@ -195,3 +195,17 @@ const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
     </t-layout>
   </t-layout>
 </template>
+
+<style scoped>
+:deep(.t-table) {
+  .custom-third-class-name > td {
+    background-color: var(--td-brand-color-light);
+    font-weight: bold;
+  }
+
+  td.custom-cell-class-name {
+    color: orange;
+    font-weight: bold;
+  }
+}
+</style>
