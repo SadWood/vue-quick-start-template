@@ -6,6 +6,10 @@ import type {
 } from 'echarts/components'
 import type { ComposeOption } from 'echarts/core'
 
+definePage({
+  name: 'echarts',
+})
+
 use([BarChart, DatasetComponent, GridComponent])
 
 type EChartsOption = ComposeOption<

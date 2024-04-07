@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { UseMouseEventExtractor } from '@vueuse/core'
 
+definePage({
+  name: 'vueuse',
+})
+
 const divRef = ref<HTMLDivElement | null>(null)
 
 const mouseDefault = reactive(useMouse())

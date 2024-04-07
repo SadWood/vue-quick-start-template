@@ -7,8 +7,14 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["unplugin-vue-router/client"]
   },
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "auto-imports.d.ts", "components.d.ts"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "./src/*.d.ts"
+  ],
   "exclude": ["src/**/__tests__/*"]
 }

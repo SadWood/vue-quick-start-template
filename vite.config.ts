@@ -8,42 +8,50 @@ import AutoImport from 'unplugin-auto-import/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { TDesignResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
+import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import VitePluginMetaEnv from 'vite-plugin-meta-env'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
 
-const ComponentsResolver = [TDesignResolver({
-  library: 'vue-next',
-  esm: true,
-  // 排除Plugin，使用 $ 开头的变量
-  exclude: /.*Plugin$/,
-})]
+const ComponentsResolver = [
+  TDesignResolver({
+    library: 'vue-next',
+    esm: true,
+    // 排除Plugin，使用 $ 开头的变量
+    exclude: /.*Plugin$/,
+  }),
+]
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '',
   plugins: [
+    VueRouter({ dts: './src/typed-router.d.ts' }),
     vue(),
     vueJsx({ transformOn: true }),
     VueDevTools(),
-    VitePluginMetaEnv({
-      APP_VERSION: version,
-      APP_BUILD_TIME: dayjs().format('YYYY-MM-DD HH:mm:ss'),
-    }, 'import.meta.env'),
+    VitePluginMetaEnv(
+      {
+        APP_VERSION: version,
+        APP_BUILD_TIME: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+      },
+      'import.meta.env',
+    ),
     legacy({ modernPolyfills: true, renderLegacyChunks: false }),
     TurboConsole(),
     AutoImport({
-      dts: true,
+      dts: './src/auto-imports.d.ts',
       injectAtEnd: true,
       imports: [
         'vue',
-        'vue-router',
         'pinia',
         'vitest',
         '@vueuse/core',
         {
+          ...VueRouterAutoImports,
           'numbro': [['default', 'numbro']],
           'radash': [['*', '_']],
           '@/utils/dayjs': [['default', 'dayjs']],
@@ -52,10 +60,7 @@ export default defineConfig({
            * 如果需要其他组件，可以自行添加
            */
           'echarts/core': ['use', 'graphic', 'registerTheme', 'registerMap'],
-          'echarts/renderers': [
-            'SVGRenderer',
-            'CanvasRenderer',
-          ],
+          'echarts/renderers': ['SVGRenderer', 'CanvasRenderer'],
           'echarts/charts': [
             'LineChart',
             'BarChart',
@@ -106,7 +111,7 @@ export default defineConfig({
       ],
     }),
     Components({
-      dts: true,
+      dts: './src/components.d.ts',
       resolvers: [
         ...ComponentsResolver,
         (componentName) => {
@@ -134,6 +139,10 @@ export default defineConfig({
       'radash',
       '@vueuse/core',
       'tdesign-vue-next/esm',
+      'tdesign-vue-next',
+      'vue-router',
+      'unplugin-vue-router/runtime',
+      'unplugin-vue-router/data-loaders/basic',
       'vue-echarts',
       'echarts/core',
       'echarts/renderers',
@@ -151,13 +160,23 @@ export default defineConfig({
       output: {
         // 将 node_modules 中的模块分包
         manualChunks: (id, { getModuleInfo }) => {
-          const moduleList = ['radash', 'numbro', 'dayjs', 'vue-echarts', 'echarts', 'tdesign-vue-next']
+          const moduleList = [
+            'radash',
+            'numbro',
+            'dayjs',
+            'vue-echarts',
+            'echarts',
+            'tdesign-vue-next',
+          ]
 
           if (id.includes('node_modules')) {
             const moduleInfo = getModuleInfo(id)
             const isCommon = moduleInfo && moduleInfo?.importers.length > 1
 
-            return moduleList.find(name => id.includes(name)) || (isCommon ? 'common' : undefined)
+            return (
+              moduleList.find(name => id.includes(name))
+              || (isCommon ? 'common' : undefined)
+            )
           }
         },
         entryFileNames: 'js/[name].[hash].js',

@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+definePage({
+  name: 'tailwind',
+})
 </script>
 
 <template>

@@ -5,7 +5,8 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo",
 
     "lib": [],
-    "types": ["node", "jsdom"]
+    "moduleResolution": "Bundler",
+    "types": ["node", "jsdom", "unplugin-vue-router/client"]
   },
   "exclude": []
 }
