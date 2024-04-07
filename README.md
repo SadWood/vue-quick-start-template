@@ -66,8 +66,7 @@ hint: You can disable this warning with git config advice.ignoredHook false.
 
 解决方案：
 
-在 mac 电脑
-某个 Git 钩子脚本没有设置为可执行文件
+可能是 Mac OS 下某个 Git 钩子脚本没有设置为可执行文件
 运行以下命令，将.husky/commit-msg 脚本设置为可执行文件：
 
 ```bash
