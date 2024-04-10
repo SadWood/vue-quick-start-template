@@ -19,9 +19,11 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
+    '404': RouteRecordInfo<'404', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     'echarts': RouteRecordInfo<'echarts', '/echarts', Record<never, never>, Record<never, never>>,
     'tailwind': RouteRecordInfo<'tailwind', '/tailwind', Record<never, never>, Record<never, never>>,
     'tdesign': RouteRecordInfo<'tdesign', '/tdesign', Record<never, never>, Record<never, never>>,
-    'vueuse': RouteRecordInfo<'vueuse', '/vueuse', Record<never, never>, Record<never, never>>,
+    'VueQuery': RouteRecordInfo<'VueQuery', '/vuequery', Record<never, never>, Record<never, never>>,
+    'VueUse': RouteRecordInfo<'VueUse', '/vueuse', Record<never, never>, Record<never, never>>,
   }
 }

@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
+    "@tanstack/vue-query": "^5.29.0",
+    "@tanstack/vue-query-devtools": "^5.29.0",
     "dayjs": "^1.11.10",
     "echarts": "^5.5.0",
     "numbro": "^2.5.0",
@@ -39,7 +41,7 @@
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@egoist/tailwindcss-icons": "^1.7.4",
-    "@iconify/json": "^2.2.197",
+    "@iconify/json": "^2.2.198",
     "@iconify/tools": "^4.0.4",
     "@iconify/utils": "^2.1.22",
     "@tailwindcss/forms": "^0.5.7",
@@ -71,14 +73,14 @@
     "terser": "^5.30.3",
     "typescript": "~5.4.4",
     "unplugin-auto-import": "^0.17.5",
+    "unplugin-inline-enum": "^0.2.0",
     "unplugin-turbo-console": "^1.6.1",
     "unplugin-vue-components": "^0.26.0",
     "unplugin-vue-router": "^0.8.5",
     "vite": "^5.2.8",
-    "vite-plugin-meta-env": "^1.0.2",
     "vite-plugin-vue-devtools": "^7.0.25",
     "vitest": "^1.4.0",
-    "vue-tsc": "^2.0.10"
+    "vue-tsc": "^2.0.11"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
@@ -103,5 +105,12 @@
     "github": {
       "release": true
     }
-  }
+  },
+  "trustedDependencies": [
+    "core-js",
+    "esbuild",
+    "simple-git-hooks",
+    "vue-demi",
+    "vue-echarts"
+  ]
 }

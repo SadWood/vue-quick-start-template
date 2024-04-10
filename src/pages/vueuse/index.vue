@@ -2,7 +2,7 @@
 import type { UseMouseEventExtractor } from '@vueuse/core'
 
 definePage({
-  name: 'vueuse',
+  name: 'VueUse',
 })
 
 const divRef = ref<HTMLDivElement | null>(null)

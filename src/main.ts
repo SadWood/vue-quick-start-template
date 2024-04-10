@@ -1,3 +1,4 @@
+import { VueQueryPlugin } from '@tanstack/vue-query'
 import { createApp } from 'vue'
 
 import '@/config'
@@ -9,6 +10,6 @@ import store from './stores'
 
 const app = createApp(App)
 
-app.use(store).use(router).mount('#app')
+app.use(store).use(router).use(VueQueryPlugin).mount('#app')
 
 export default app

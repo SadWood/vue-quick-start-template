@@ -1,17 +1,17 @@
 import { URL, fileURLToPath } from 'node:url'
 
-import legacy from '@vitejs/plugin-legacy'
+// import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dayjs from 'dayjs'
 import AutoImport from 'unplugin-auto-import/vite'
+import InlineEnum from 'unplugin-inline-enum/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { TDesignResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
-import VitePluginMetaEnv from 'vite-plugin-meta-env'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
@@ -29,18 +29,15 @@ const ComponentsResolver = [
 export default defineConfig({
   base: '',
   plugins: [
-    VueRouter({ dts: './src/typed-router.d.ts' }),
+    VueRouter({
+      dts: './src/typed-router.d.ts',
+      exclude: ['**/components'],
+    }),
     vue(),
     vueJsx({ transformOn: true }),
     VueDevTools(),
-    VitePluginMetaEnv(
-      {
-        APP_VERSION: version,
-        APP_BUILD_TIME: dayjs().format('YYYY-MM-DD HH:mm:ss'),
-      },
-      'import.meta.env',
-    ),
-    legacy({ modernPolyfills: true, renderLegacyChunks: false }),
+    InlineEnum({ scanMode: 'git' }),
+    // legacy({ modernPolyfills: true, renderLegacyChunks: false }),
     TurboConsole(),
     AutoImport({
       dts: './src/auto-imports.d.ts',
@@ -92,6 +89,7 @@ export default defineConfig({
             ['LoadingPlugin', '$loading'],
             ['DialogPlugin', '$dialog'],
           ],
+          '@tanstack/vue-query': ['useQueryClient', 'useQuery', 'useMutation'],
         },
       ],
       vueTemplate: true,
@@ -154,6 +152,10 @@ export default defineConfig({
   esbuild: {
     // 打包时移除 console 和 debugger
     drop: ['console', 'debugger'],
+  },
+  define: {
+    'import.meta.env.ENV_VERSION': JSON.stringify(version),
+    'import.meta.env.APP_BUILD_TIME': JSON.stringify(dayjs().format('YYYY-MM-DD HH:mm:ss')),
   },
   build: {
     rollupOptions: {
