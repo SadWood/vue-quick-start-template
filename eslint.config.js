@@ -35,10 +35,10 @@ export default antfu(
   ...compat.config({
     extends: [
       'plugin:tailwindcss/recommended',
-      // Other extends...
+      'plugin:@tanstack/eslint-plugin-query/recommended',
     ],
     rules: {
-      // 允许tailwindcss以外的自定义类名
+      // 关闭禁用自定义类名
       'tailwindcss/no-custom-classname': 'off',
     },
   }),
