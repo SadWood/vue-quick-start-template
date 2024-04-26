@@ -21,6 +21,7 @@ declare module 'vue-router/auto-routes' {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     '404': RouteRecordInfo<'404', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     'echarts': RouteRecordInfo<'echarts', '/echarts', Record<never, never>, Record<never, never>>,
+    'playground': RouteRecordInfo<'playground', '/playground', Record<never, never>, Record<never, never>>,
     'tailwind': RouteRecordInfo<'tailwind', '/tailwind', Record<never, never>, Record<never, never>>,
     'tdesign': RouteRecordInfo<'tdesign', '/tdesign', Record<never, never>, Record<never, never>>,
     'VueQuery': RouteRecordInfo<'VueQuery', '/vuequery', Record<never, never>, Record<never, never>>,
