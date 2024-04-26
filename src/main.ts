@@ -1,4 +1,5 @@
 import { VueQueryPlugin } from '@tanstack/vue-query'
+import TDesign from 'tdesign-vue-next'
 import { createApp } from 'vue'
 
 import '@/config'
@@ -9,6 +10,8 @@ import router from './router'
 import store from './stores'
 
 const app = createApp(App)
+
+import.meta.env.DEV && app.use(TDesign)
 
 app.use(store).use(router).use(VueQueryPlugin).mount('#app')
 
