@@ -3,14 +3,14 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
 
 const router = useRouter()
 
-const routes = router.getRoutes().filter(route => route.name !== '404').map(route => ({
-  name: _.title(route.name as string),
-  path: route.path,
-}))
+const routes = router.getRoutes()
+  .filter(route => route.name !== '404')
+  .map(route => ({
+    name: _.title(String(route.name)),
+    path: route.path,
+  }))
 
 console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
-
-console.log(import.meta.env)
 </script>
 
 <template>

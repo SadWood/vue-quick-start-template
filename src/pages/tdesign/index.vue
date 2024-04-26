@@ -7,7 +7,17 @@ definePage({
 
 $message.success(`${dayjs().format('a')}好，TDesign!`)
 
-const percentage = numbro(dayjs().diff(dayjs().startOf('year'), 'day')).divide(dayjs().isLeapYear() ? 366 : 365).multiply(100).format('0.00')
+function calculateDayOfYearPercentage(): string {
+  const now = dayjs()
+  const startOfYear = now.startOf('year')
+  const endOfYear = now.endOf('year')
+  const daysDiff = now.diff(startOfYear)
+  const daysInYear = endOfYear.diff(startOfYear)
+  const percentage = numbro(daysDiff).divide(daysInYear).multiply(100).format('0.00')
+  return percentage
+}
+
+const percentage = calculateDayOfYearPercentage()
 
 const statusNameListMap = {
   0: {
@@ -41,6 +51,7 @@ for (let i = 0; i < total; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   })
 }
+
 const columns = ref<TableProps['columns']>([
   {
     colKey: 'applicant',
@@ -106,6 +117,7 @@ const columns = ref<TableProps['columns']>([
 const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
   if (rowIndex === 2)
     return 'custom-third-class-name'
+
   return ''
 }
 </script>
