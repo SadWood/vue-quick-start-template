@@ -3,6 +3,7 @@ import type { BarSeriesOption } from 'echarts/charts'
 import type {
   DatasetComponentOption,
   GridComponentOption,
+  TooltipComponentOption,
 } from 'echarts/components'
 import type { ComposeOption } from 'echarts/core'
 
@@ -10,12 +11,13 @@ definePage({
   name: 'echarts',
 })
 
-use([BarChart, DatasetComponent, GridComponent])
+use([BarChart, DatasetComponent, GridComponent, TooltipComponent])
 
 type EChartsOption = ComposeOption<
   | DatasetComponentOption
   | GridComponentOption
   | BarSeriesOption
+  | TooltipComponentOption
 >
 
 function random() {
@@ -24,6 +26,9 @@ function random() {
 
 function getData(): EChartsOption {
   return {
+    tooltip: {
+      trigger: 'axis',
+    },
     textStyle: {
       fontFamily: 'Inter, "Helvetica Neue", Arial, sans-serif',
       fontWeight: 300,
@@ -80,6 +85,6 @@ const option = shallowRef<EChartsOption>(getData())
     autoresize
     :loading="loading"
     :loading-options="loadingOptions"
-    class="h-96 w-full"
+    class="h-96"
   />
 </template>

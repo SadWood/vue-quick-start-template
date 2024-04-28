@@ -29,6 +29,10 @@ console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
       </nav>
     </div>
   </header>
-  <RouterView />
+  <router-view v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
   <VueQueryDevtools />
 </template>
