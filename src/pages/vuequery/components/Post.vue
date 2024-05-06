@@ -10,10 +10,6 @@ const props = defineProps({
 
 defineEmits(['setPostId'])
 
-definePage({
-  name: 'post',
-})
-
 async function fetcher(id: number): Promise<Post> {
   return await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then(
     response => response.json(),
@@ -29,7 +25,7 @@ const { isPending, isError, isFetching, data, error } = useQuery({
 <template>
   <h1>Post {{ postId }}</h1>
   <a href="#" @click="$emit('setPostId', -1)"> Back </a>
-  <div v-if="isPending" class="update">
+  <div v-if="isPending">
     Loading...
   </div>
   <div v-else-if="isError">

@@ -42,7 +42,7 @@ export default defineConfig(({ command }) => {
       VueRouter({
         dts: './src/typed-router.d.ts',
         // 禁止扫描 components 目录
-        exclude: ['**/components'],
+        exclude: ['**/components/**/*.vue'],
       }),
       vue(),
       vueJsx({ transformOn: true }),
