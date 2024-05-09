@@ -1,7 +1,8 @@
 import { dynamicIconsPlugin, iconsPlugin } from '@egoist/tailwindcss-icons'
 import { cleanupSVG, importDirectorySync, isEmptyColor, parseColors, runSVGO } from '@iconify/tools'
 import { compareColors, stringToColor } from '@iconify/utils/lib/colors'
-import formsPlugin from '@tailwindcss/forms'
+
+import type { Config } from 'tailwindcss'
 
 function getCollections(dir: string) {
   // Import icons
@@ -74,7 +75,6 @@ function getCollections(dir: string) {
   return iconSet.export()
 }
 
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     './index.html',
@@ -102,7 +102,6 @@ export default {
     },
   },
   plugins: [
-    formsPlugin(),
     // example: icon-vue-logo
     iconsPlugin({
       prefix: 'icon',
@@ -123,4 +122,4 @@ export default {
       },
     }),
   ],
-}
+} satisfies Config
