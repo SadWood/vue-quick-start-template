@@ -62,7 +62,7 @@ export default defineConfig(({ command }) => {
             ...VueRouterAutoImports,
             'numbro': [['default', 'numbro']],
             'radash': [['*', '_']],
-            '@/utils/dayjs': [['default', 'dayjs']],
+            '@/plugins/dayjs': [['default', 'dayjs']],
             /**
              * 添加 ECharts 部分组件，当前添加但项目中未使用的组件不会被打包
              * 如果需要其他组件，可以自行添加
@@ -174,6 +174,9 @@ export default defineConfig(({ command }) => {
       'import.meta.env.APP_BUILD_TIME': JSON.stringify(
         dayjs().format('YYYY-MM-DD HH:mm:ss'),
       ),
+    },
+    json: {
+      stringify: true,
     },
     build: {
       rollupOptions: {
