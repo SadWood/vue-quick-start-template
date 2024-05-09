@@ -3,18 +3,19 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["unplugin-vue-router/client"]
+    "types": ["unplugin-vue-router/client"],
+    "strict": true
   },
   "include": [
     "env.d.ts",
     "src/**/*.ts",
     "src/**/*.vue",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "node_modules/tdesign-vue-next/global.d.ts"
   ],
   "exclude": ["src/**/__tests__/*"]
 }
