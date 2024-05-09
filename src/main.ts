@@ -2,7 +2,7 @@ import { VueQueryPlugin } from '@tanstack/vue-query'
 import TDesign from 'tdesign-vue-next'
 import { createApp } from 'vue'
 
-import '@/config'
+import '@/configs'
 import '@/styles/main.css'
 
 import App from './App.vue'
