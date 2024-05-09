@@ -1,5 +1,5 @@
 <script lang="tsx" setup>
-import type { InputValue, SubmitContext, TableProps } from 'tdesign-vue-next'
+import type { FormRules, InputValue, SubmitContext, TableProps } from 'tdesign-vue-next'
 
 definePage({
   name: 'tdesign',
@@ -8,7 +8,7 @@ definePage({
 $message.success(`${dayjs().format('a')}好，TDesign!`)
 
 // #region form
-const FORM_RULES = {
+const FORM_RULES: FormRules<typeof formData> = {
   name: [{ required: true, message: '姓名必填', trigger: 'blur' }],
   tel: [
     {
