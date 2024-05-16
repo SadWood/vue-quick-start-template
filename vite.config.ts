@@ -14,7 +14,7 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import mkcert from 'vite-plugin-mkcert'
-import VueDevTools from 'vite-plugin-vue-devtools'
+// import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
 
@@ -46,7 +46,8 @@ export default defineConfig(({ command }) => {
       }),
       vue(),
       vueJsx({ transformOn: true }),
-      VueDevTools(),
+      // TODO: 启用 VueDevTools 会导致在使用 $message 等全局变量时，无法切换路由
+      // VueDevTools(),
       InlineEnum({ scanMode: 'git' }),
       // legacy({ modernPolyfills: true, renderLegacyChunks: false }),
       TurboConsole(),
