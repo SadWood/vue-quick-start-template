@@ -167,7 +167,7 @@ export default defineConfig(({ command }) => {
     },
     esbuild: {
       // 打包时移除 console 和 debugger
-      drop: ['console', 'debugger'],
+      drop: command === 'build' ? ['debugger', 'console'] : [],
     },
     define: {
       'import.meta.env.ENV_VERSION': JSON.stringify(version),
