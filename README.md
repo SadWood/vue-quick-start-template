@@ -1,86 +1,74 @@
 # vue-quick-start-template
 
-This template should help get you started developing with Vue 3 in Vite.
+这个模板应该可以帮助你快速开始使用 Vue 3 和 Vite 进行开发。
 
-## Recommended IDE Setup
+## 推荐的 IDE 设置
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (并禁用 Vetur)。
 
-## Type Support for `.vue` Imports in TS
+## TS 中 `.vue` 导入的类型支持
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+默认情况下，TypeScript 无法处理 `.vue` 导入的类型信息，因此我们用 [`vue-tsc`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2FUsers%2Fchaijin%2FGit%2Fvue-quick-start-template%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A0%2C%22character%22%3A0%7D%5D 'README.md') 替换 `tsc` CLI 进行类型检查。在编辑器中，我们需要 [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 使 TypeScript 语言服务了解 `.vue` 类型。
 
-## Customize configuration
+## 自定义配置
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+参见 [Vite 配置参考](https://vitejs.dev/config/)。
 
-## Project Setup
+## 项目设置
 
 ```sh
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+### 编译并为开发热重载
 
 ```sh
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 类型检查，编译并为生产环境压缩
 
 ```sh
 pnpm build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### 使用 [Vitest](https://vitest.dev/) 运行单元测试
 
 ```sh
 pnpm test:unit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### 使用 [ESLint](https://eslint.org/) 进行 lint
 
 ```sh
 pnpm lint
 ```
 
-### Solving Guide
+## 常见问题及解决方案
 
-```
-Could not open SomeComponent.vue in the editor.
-The editor process exited with an error: spawn code ENOENT.
-```
+1. 问题1: `Could not open xxxxxxx.vue in the editor.The editor process exited with an error: spawn code ENOENT.`
+   [Launching from the command line](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
 
-[Launching from the command line](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
+2. 问题2: '.husky/commit-msg' hook was ignored because it's not set as executable:
 
-[Echarts import code generator](https://vue-echarts.dev/?renderer=svg#codegen)
+   1. 设置脚本为可执行文件：
 
-### TDesign
+   ```bash
+   chmod +x .husky/commit-msg
+   ```
 
-`MessagePlugin`, `NotifyPlugin`, `LoadingPlugin`, `DialogPlugin`
+   2. 验证脚本是否已设置为可执行文件：
 
-```bash
-hint: The '.husky/commit-msg' hook was ignored because it's not set as executable.
-hint: You can disable this warning with git config advice.ignoredHook false.
-```
+   ```bash
+   ls -l .husky/commit-msg
+   ```
 
-解决方案：
+   3. 如果你仍然收到相同的警告信息，你可以根据提示禁用该警告，运行以下命令：
 
-可能是 Mac OS 下某个 Git 钩子脚本没有设置为可执行文件
-运行以下命令，将.husky/commit-msg 脚本设置为可执行文件：
+   ```bash
+   git config advice.ignoredHook false
+   ```
 
-```bash
-chmod +x .husky/commit-msg
-```
+## 工具推荐
 
-运行以下命令来验证脚本是否已设置为可执行文件：
-
-```bash
-ls -l .husky/commit-msg
-```
-
-如果你仍然收到相同的警告信息，你可以根据提示禁用该警告，运行以下命令：
-
-```bash
-git config advice.ignoredHook false
-```
+- [Echarts import code generator](https://vue-echarts.dev/?renderer=svg#codegen)
