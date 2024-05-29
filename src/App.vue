@@ -11,6 +11,31 @@ const routes = router.getRoutes()
   }))
 
 console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss a')}好，旅行者！`)
+
+const isDark = ref(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+function setDarkMode(e?: MediaQueryListEvent) {
+  isDark.value = e?.matches ?? isDark.value
+  if (isDark.value) {
+    // 设置暗色模式
+    document.documentElement.setAttribute('theme-mode', 'dark')
+  }
+  else {
+    // 重置为浅色模式
+    document.documentElement.removeAttribute('theme-mode')
+  }
+}
+
+onMounted(() => {
+  setDarkMode()
+  darkModeMediaQuery.addEventListener('change', setDarkMode)
+})
+
+onUnmounted(() => {
+  darkModeMediaQuery.removeEventListener('change', setDarkMode)
+})
 </script>
 
 <template>
