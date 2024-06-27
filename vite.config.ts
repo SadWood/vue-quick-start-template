@@ -157,6 +157,7 @@ export default defineConfig(({ command }) => {
         'vue-router',
         'unplugin-vue-router/runtime',
         'unplugin-vue-router/data-loaders/basic',
+        'unplugin-vue-router/data-loaders',
         'vue-echarts',
         'echarts/core',
         'echarts/renderers',
