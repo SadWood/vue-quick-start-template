@@ -8,7 +8,7 @@ definePage({
   <div class="relative z-10 rounded-xl shadow-xl">
     <div class="space-y-6 rounded-t-xl border-b border-slate-100 bg-white p-4 pb-6 sm:space-y-8 sm:p-10 sm:pb-8 lg:space-y-6 lg:p-6 xl:space-y-8 xl:p-10 xl:pb-8 dark:border-slate-500 dark:bg-slate-800">
       <div class="flex items-center space-x-4">
-        <img src="@/assets/full-stack-radio.png" alt="" width="88" height="88" class="flex-none rounded-lg bg-slate-100" loading="lazy">
+        <img src="@/assets/full-stack-radio.png" alt="" width="88" height="88" class="flex-none rounded-lg bg-slate-100">
         <div class="min-w-0 flex-auto space-y-1 font-semibold">
           <p class="text-sm leading-6 text-cyan-500 dark:text-cyan-400">
             <abbr title="Episode">Ep.</abbr> 128

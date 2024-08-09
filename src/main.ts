@@ -11,7 +11,9 @@ import store from './stores'
 
 const app = createApp(App)
 
-import.meta.env.DEV && app.use(TDesign)
+if (import.meta.env.DEV) {
+  app.use(TDesign)
+}
 
 app.use(store).use(router).use(VueQueryPlugin).mount('#app')
 
