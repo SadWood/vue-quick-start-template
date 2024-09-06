@@ -201,7 +201,7 @@ const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
         <t-table row-key="id" :data="data" :columns="columns" :row-class-name="getRowClassName">
           <template #footerSummary>
             <div class="flex items-center justify-center gap-x-2">
-              <span class="icon-[tdesign--info-circle]" />近期申请耗时较长
+              <span class="icon-[tdesign--info-circle]"></span>近期申请耗时较长
             </div>
           </template>
         </t-table>

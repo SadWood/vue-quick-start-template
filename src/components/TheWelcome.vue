@@ -1,7 +1,7 @@
 <template>
   <WelcomeItem>
     <template #icon>
-      <span class="icon-vue-documentation size-5" />
+      <span class="icon-vue-documentation size-5"></span>
     </template>
     <template #heading>
       Documentation
@@ -14,7 +14,7 @@
 
   <WelcomeItem>
     <template #icon>
-      <span class="icon-vue-tooling size-5" />
+      <span class="icon-vue-tooling size-5"></span>
     </template>
     <template #heading>
       Tooling
@@ -29,14 +29,14 @@
     <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
     <a href="https://on.cypress.io/component" target="_blank" rel="noopener">Cypress Component Testing</a>.
 
-    <br>
+    <br />
 
     More instructions are available in <code>README.md</code>.
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
-      <span class="icon-vue-ecosystem size-5" />
+      <span class="icon-vue-ecosystem size-5"></span>
     </template>
     <template #heading>
       Ecosystem
@@ -54,7 +54,7 @@
 
   <WelcomeItem>
     <template #icon>
-      <span class="icon-vue-community size-5" />
+      <span class="icon-vue-community size-5"></span>
     </template>
     <template #heading>
       Community
@@ -72,7 +72,7 @@
 
   <WelcomeItem>
     <template #icon>
-      <span class="icon-vue-support size-5" />
+      <span class="icon-vue-support size-5"></span>
     </template>
     <template #heading>
       Support Vue

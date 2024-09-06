@@ -30,6 +30,15 @@ export default antfu(
       }],
       'no-console': 'off', // 关闭规则，在打包时会自动删除，开发环境可用
       'no-debugger': 'off', // 同上
+      'vue/html-self-closing': ['warn', {
+        html: {
+          void: 'always',
+          normal: 'never',
+          component: 'always',
+        },
+        svg: 'always',
+        math: 'always',
+      }],
     },
   },
   ...compat.config({

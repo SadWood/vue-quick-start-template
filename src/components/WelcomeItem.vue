@@ -5,13 +5,13 @@
     <i
       class="flex size-8 place-content-center place-items-center bg-vue-background text-vue-text lg:absolute lg:left-[-26px] lg:top-[calc(50%-25px)] lg:size-[50px] lg:rounded-lg lg:border lg:border-solid lg:border-vue-border"
     >
-      <slot name="icon" />
+      <slot name="icon"></slot>
     </i>
     <div class="ml-4 flex-1">
       <h3 class="mb-[0.4rem] text-xl font-medium text-vue-heading">
-        <slot name="heading" />
+        <slot name="heading"></slot>
       </h3>
-      <slot />
+      <slot></slot>
     </div>
   </div>
 </template>
