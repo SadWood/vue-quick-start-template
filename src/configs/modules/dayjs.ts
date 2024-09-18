@@ -1,5 +1,5 @@
-import 'dayjs/locale/zh-cn'
 import isLeapYear from 'dayjs/plugin/isLeapYear'
+import 'dayjs/locale/zh-cn'
 
 dayjs.extend(isLeapYear)
 // 设置中文

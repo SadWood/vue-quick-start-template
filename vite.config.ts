@@ -1,4 +1,4 @@
-import { URL, fileURLToPath } from 'node:url'
+import { fileURLToPath, URL } from 'node:url'
 
 // import legacy from '@vitejs/plugin-legacy'
 import http2Proxy from '@cpsoinos/vite-plugin-http2-proxy'
