@@ -14,7 +14,7 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import mkcert from 'vite-plugin-mkcert'
-// import VueDevTools from 'vite-plugin-vue-devtools'
+import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
 
@@ -46,7 +46,7 @@ export default defineConfig(({ command }) => {
       }),
       vue(),
       vueJsx({ transformOn: true }),
-      // VueDevTools(),
+      VueDevTools(),
       InlineEnum({ scanMode: 'git' }),
       // legacy({ modernPolyfills: true, renderLegacyChunks: false }),
       TurboConsole(),

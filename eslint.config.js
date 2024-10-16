@@ -39,6 +39,7 @@ export default antfu(
         svg: 'always',
         math: 'always',
       }],
+      'perfectionist/sort-imports': 'off',
     },
   },
   ...compat.config({
