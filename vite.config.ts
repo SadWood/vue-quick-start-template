@@ -205,8 +205,8 @@ export default defineConfig(({ command }) => {
           },
           entryFileNames: 'js/[name].[hash].js',
           chunkFileNames: 'js/[name].[hash].js',
-          assetFileNames: ({ name }) => {
-            if (name?.endsWith('.css'))
+          assetFileNames: ({ names }) => {
+            if (names[0].endsWith('.css'))
               return 'css/[name].[hash].css'
             return 'assets/[name].[hash][extname]'
           },
