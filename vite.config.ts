@@ -35,9 +35,7 @@ export default defineConfig(({ command }) => {
   return {
     base: './',
     plugins: [
-      mkcert({
-        source: 'coding',
-      }),
+      mkcert({ source: 'coding' }),
       http2Proxy({ quiet: true }),
       VueRouter({
         dts: './src/typed-router.d.ts',
@@ -176,9 +174,6 @@ export default defineConfig(({ command }) => {
         dayjs().format('YYYY-MM-DD HH:mm:ss'),
       ),
     },
-    json: {
-      stringify: true,
-    },
     build: {
       rollupOptions: {
         output: {
@@ -210,6 +205,15 @@ export default defineConfig(({ command }) => {
               return 'css/[name].[hash].css'
             return 'assets/[name].[hash][extname]'
           },
+        },
+      },
+    },
+    server: {
+      proxy: {
+        '/api': {
+          target: 'https://api.example.com',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, ''),
         },
       },
     },
