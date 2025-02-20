@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // import legacy from '@vitejs/plugin-legacy'
 import http2Proxy from '@cpsoinos/vite-plugin-http2-proxy'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dayjs from 'dayjs'
@@ -35,6 +36,7 @@ export default defineConfig(({ command }) => {
   return {
     base: './',
     plugins: [
+      tailwindcss(),
       mkcert({ source: 'coding' }),
       http2Proxy({ quiet: true }),
       VueRouter({

@@ -26,7 +26,7 @@ definePage({
           <div class="overflow-hidden rounded-full bg-slate-100 transition-all duration-500 dark:bg-slate-700">
             <div class="h-2 w-1/2 bg-cyan-500 transition-all duration-500 dark:bg-cyan-400" role="progressbar" aria-label="music progress" aria-valuenow="1456" aria-valuemin="0" aria-valuemax="4550"></div>
           </div>
-          <div class="absolute left-1/2 top-1/2 -ml-2 -mt-2 flex size-4 items-center justify-center rounded-full bg-white shadow ring-2 ring-cyan-500 transition-all duration-500 dark:ring-cyan-400">
+          <div class="absolute left-1/2 top-1/2 -ml-2 -mt-2 flex size-4 items-center justify-center rounded-full bg-white shadow-sm ring-2 ring-cyan-500 transition-all duration-500 dark:ring-cyan-400">
             <div class="size-1.5 rounded-full bg-cyan-500 ring-1 ring-inset ring-slate-900/5 transition-all duration-500 dark:bg-cyan-400"></div>
           </div>
         </div>

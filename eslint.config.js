@@ -1,7 +1,9 @@
 import antfu from '@antfu/eslint-config'
-import { FlatCompat } from '@eslint/eslintrc'
+// import { FlatCompat } from '@eslint/eslintrc'
+import pluginQuery from '@tanstack/eslint-plugin-query'
+// import tailwind from 'eslint-plugin-tailwindcss'
 
-const compat = new FlatCompat()
+// const compat = new FlatCompat()
 
 export default antfu(
   {
@@ -42,14 +44,23 @@ export default antfu(
       'perfectionist/sort-imports': 'off',
     },
   },
-  ...compat.config({
-    extends: [
-      'plugin:tailwindcss/recommended',
-      'plugin:@tanstack/eslint-plugin-query/recommended',
-    ],
-    rules: {
-      // 关闭禁用自定义类名
-      'tailwindcss/no-custom-classname': 'off',
+  {
+    plugins: {
+      '@tanstack/query': pluginQuery,
     },
-  }),
+  },
+  // {...tailwind.configs["flat/recommended"]},
+  // ...compat.config({
+  // extends: [
+  //   'plugin:tailwindcss/recommended',
+  //   'plugin:@tanstack/eslint-plugin-query/recommended',
+  // ],
+  //   plugins: {
+  //     '@tanstack/query': pluginQuery,
+  //   },
+  //   rules: {
+  //     // 关闭禁用自定义类名
+  //     'tailwindcss/no-custom-classname': 'off',
+  //   },
+  // }),
 )

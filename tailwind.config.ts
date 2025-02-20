@@ -1,5 +1,11 @@
 import { dynamicIconsPlugin, iconsPlugin } from '@egoist/tailwindcss-icons'
-import { cleanupSVG, importDirectorySync, isEmptyColor, parseColors, runSVGO } from '@iconify/tools'
+import {
+  cleanupSVG,
+  importDirectorySync,
+  isEmptyColor,
+  parseColors,
+  runSVGO,
+} from '@iconify/tools'
 import { compareColors, stringToColor } from '@iconify/utils/lib/colors'
 
 import type { Config } from 'tailwindcss'
@@ -76,17 +82,8 @@ function getCollections(dir: string) {
 }
 
 export default {
-  content: [
-    './index.html',
-    './src/**/*.{vue,js,ts,jsx,tsx}',
-  ],
   theme: {
     extend: {
-      maxWidth: {
-        '8xl': '88rem',
-        '9xl': '96rem',
-        '10xl': '104rem',
-      },
       colors: {
         'vue-background': 'var(-color-background)',
         'vue-background-soft': 'var(--color-background-soft)',
@@ -95,9 +92,6 @@ export default {
         'vue-border-hover': 'var(--color-border-hover)',
         'vue-heading': 'var(--color-heading)',
         'vue-text': 'var(--color-text)',
-      },
-      transitionDuration: {
-        400: '400ms',
       },
     },
   },
@@ -115,7 +109,7 @@ export default {
     }),
     // example: icon-[heroicons--check-solid]
     dynamicIconsPlugin({
-      prefix: 'icon',
+      prefix: 'iconify',
       extraProperties: {
         display: 'inline-block',
         verticalAlign: 'middle',

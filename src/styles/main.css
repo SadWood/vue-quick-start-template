@@ -1,9 +1,9 @@
-@import './base.css';
-@import 'tdesign-vue-next/es/style/index.css';
+@import './base.css' layer(base);
+@import 'tdesign-vue-next/es/style/index.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.ts';
 
 :root {
   --color-background: var(--vt-c-white);
@@ -36,11 +36,11 @@ body {
 }
 
 #app {
-  @apply mx-auto p-8 max-w-8xl font-normal lg:grid lg:grid-cols-2 lg:px-8 lg:py-0;
+  @apply mx-auto p-8 max-w-352 font-normal lg:grid lg:grid-cols-2 lg:px-8 lg:py-0;
 }
 
 a {
-  @apply text-[#00BD7E] no-underline transition duration-400 hover:bg-[#00BD7E33] p-[3px];
+  @apply text-[#00BD7E] no-underline transition duration-400 hover:bg-[#00BD7E33] p-0.75;
 
   &.router-link {
     @apply inline-block px-4;

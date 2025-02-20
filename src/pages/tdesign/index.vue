@@ -68,17 +68,17 @@ const statusNameListMap = {
   0: {
     label: '审批通过',
     theme: 'success',
-    icon: <span class="icon-[tdesign--check-circle-filled]" />,
+    icon: <span class="iconify-[tdesign--check-circle-filled]" />,
   },
   1: {
     label: '审批失败',
     theme: 'danger',
-    icon: <span class="icon-[tdesign--close-circle-filled]" />,
+    icon: <span class="iconify-[tdesign--close-circle-filled]" />,
   },
   2: {
     label: '审批过期',
     theme: 'warning',
-    icon: <span class="icon-[tdesign--error-circle-filled]" />,
+    icon: <span class="iconify-[tdesign--error-circle-filled]" />,
   },
 }
 const data: TableProps['data'] = []
@@ -201,7 +201,7 @@ const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
         <t-table row-key="id" :data="data" :columns="columns" :row-class-name="getRowClassName">
           <template #footerSummary>
             <div class="flex items-center justify-center gap-x-2">
-              <span class="icon-[tdesign--info-circle]"></span>近期申请耗时较长
+              <span class="iconify-[tdesign--info-circle]"></span>近期申请耗时较长
             </div>
           </template>
         </t-table>

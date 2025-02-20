@@ -36,10 +36,10 @@ function nextPage() {
     <h1>Posts</h1>
     <p>Current Page: {{ page }} | Previous data: {{ isPlaceholderData }}</p>
     <div class="ml-auto space-x-2">
-      <button class="rounded px-2 py-1 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" @click="prevPage">
+      <button class="rounded-sm px-2 py-1 shadow-xs ring-1 ring-inset ring-gray-300 hover:bg-gray-50" @click="prevPage">
         Prev Page
       </button>
-      <button class="rounded px-2 py-1 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" @click="nextPage">
+      <button class="rounded-sm px-2 py-1 shadow-xs ring-1 ring-inset ring-gray-300 hover:bg-gray-50" @click="nextPage">
         Next Page
       </button>
     </div>
