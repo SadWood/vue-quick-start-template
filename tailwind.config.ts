@@ -96,9 +96,9 @@ export default {
     },
   },
   plugins: [
-    // example: icon-vue-logo
+    // example: i-vue-logo
     iconsPlugin({
-      prefix: 'icon',
+      // prefix: 'icon',
       collections: {
         vue: getCollections('./src/icons/vue'),
       },

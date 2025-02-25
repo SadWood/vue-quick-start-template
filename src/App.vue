@@ -42,7 +42,7 @@ onUnmounted(() => {
   <header
     class="max-h-screen leading-normal lg:flex lg:items-center lg:pr-20"
   >
-    <div class="icon-vue-logo aspect-square size-32 lg:mr-8"></div>
+    <div class="i-vue-logo aspect-square size-32 lg:mr-8"></div>
     <div class="lg:flex lg:flex-wrap lg:place-items-start">
       <HelloWorld msg="You did it!" />
       <nav
