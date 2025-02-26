@@ -1,3 +1,6 @@
+import fs from 'node:fs'
+import path from 'node:path'
+
 import { dynamicIconsPlugin, iconsPlugin } from '@egoist/tailwindcss-icons'
 import {
   cleanupSVG,
@@ -8,7 +11,31 @@ import {
 } from '@iconify/tools'
 import { compareColors, stringToColor } from '@iconify/utils/lib/colors'
 
+import { generateFileName, isValidFontFile } from './src/utils/index'
+
 import type { Config } from 'tailwindcss'
+
+async function generateFontFamily(dir: string, prefix?: string): Promise<Record<string, string[]>> {
+  const files = await fs.promises.readdir(dir, { withFileTypes: true })
+  const fontFiles: Record<string, string[]> = {}
+
+  await Promise.all(
+    files.map(async (file) => {
+      const filePath = path.join(dir, file.name)
+
+      if (file.isDirectory()) {
+        const subFonts = await generateFontFamily(filePath, file.name)
+        Object.assign(fontFiles, subFonts)
+      }
+      else if (file.isFile() && isValidFontFile(file)) {
+        const name = generateFileName(file, prefix)
+        fontFiles[name.toLowerCase()] = [name]
+      }
+    }),
+  )
+
+  return fontFiles
+}
 
 function getCollections(dir: string) {
   // Import icons
@@ -84,14 +111,8 @@ function getCollections(dir: string) {
 export default {
   theme: {
     extend: {
-      colors: {
-        'vue-background': 'var(-color-background)',
-        'vue-background-soft': 'var(--color-background-soft)',
-        'vue-background-mute': 'var(--color-background-mute)',
-        'vue-border': 'var(--color-border)',
-        'vue-border-hover': 'var(--color-border-hover)',
-        'vue-heading': 'var(--color-heading)',
-        'vue-text': 'var(--color-text)',
+      fontFamily: {
+        ...(await generateFontFamily('./src/fonts')),
       },
     },
   },

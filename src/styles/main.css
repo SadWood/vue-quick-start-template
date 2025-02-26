@@ -5,6 +5,16 @@
 
 @config '../../tailwind.config.ts';
 
+@theme {
+  --color-vue-background: var(--color-background);
+  --color-vue-background-soft: var(--color-background-soft);
+  --color-vue-background-mute: var(--color-background-mute);
+  --color-vue-border: var(--color-border);
+  --color-vue-border-hover: var(--color-border-hover);
+  --color-vue-heading: var(--color-heading);
+  --color-vue-text: var(--color-text);
+}
+
 :root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);

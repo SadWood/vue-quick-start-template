@@ -7,6 +7,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dayjs from 'dayjs'
 import AutoImport from 'unplugin-auto-import/vite'
+import Unfonts from 'unplugin-fonts/vite'
 import InlineEnum from 'unplugin-inline-enum/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { TDesignResolver } from 'unplugin-vue-components/resolvers'
@@ -18,6 +19,7 @@ import mkcert from 'vite-plugin-mkcert'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 import { version } from './package.json'
+import { transformFontGeneric } from './src/utils/index'
 
 export default defineConfig(({ command }) => {
   // 构建前全量引入，构建后按需引入
@@ -36,6 +38,27 @@ export default defineConfig(({ command }) => {
   return {
     base: './',
     plugins: [
+      Unfonts({
+        custom: {
+          display: 'auto',
+          preload: true,
+          prefetch: false,
+          injectTo: 'head-prepend',
+          families: [
+            {
+              name: 'Harmony',
+              local: ['HarmonyOS Sans'],
+              src: './src/fonts/Harmony/*.woff2',
+              transform: font => transformFontGeneric(font),
+            },
+            {
+              name: 'JinBuTi',
+              local: ['DingTalk-JinBuTi', '钉钉进步体'],
+              src: './src/fonts/DingTalk_JinBuTi.woff2',
+            },
+          ],
+        },
+      }),
       tailwindcss(),
       mkcert({ source: 'coding' }),
       http2Proxy({ quiet: true }),
